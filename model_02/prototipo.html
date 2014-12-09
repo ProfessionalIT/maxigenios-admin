@@ -1,0 +1,679 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+     <title>SGJ - Versão beta 0.01</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="generator" content="Geany 0.19" />
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+    <script src="./form_files/jquery.js" type="text/javascript"></script>
+</head>
+</head>
+<body>
+    <div id="header_page">
+        <span>Sistema SGJ - Sistema de Gestão de Jornais.</span>
+        <form>
+            <input type="text" size="50" title="Texto a ser pesquisado no sistema." /><button id="buscar" class="btn_search" title="Pesquisa no sistema.">Busca</button>
+        </form>
+    </div>
+    <div id="innerPage">
+        <div id="menuPanel">
+            <ul class="menu">
+                <li class="menuTitle">
+                    CADASTROS
+                    <ul>
+                        <li class="menuItem">
+                            <a href="#" title="Cadastro de Clientes." class="selected">Clientes</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="#" title="Cadastro de Vendedores.">Vendedores</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="#" title="Cadastro de Produtos.">Produto</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="#" title="Cadastro de Seções.">Seção</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="#" title="Cadastro de Formas de Pagamento.">Forma de Pagamento</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="#" title="Cadastro de Configurações do Sistema.">Configurações</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menuTitle">
+                    ROTINAS
+                    <ul>
+                        <li class="menuItem">
+                            <a href="#" title="Contrato de Publicidade.">Publicidade</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="#" title="Agendamento de Visitas.">Visitas</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="#" title="Propostas de Anúncio.">Propostas</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="#" title="Geração de Pagamentos.">Pagamentos</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="#" title="Histórico de Atendimentos.">Históricos</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menuTitle">
+                    RELATÓRIOS
+                    <ul>
+                        <li class="menuItem">
+                            <a href="#" title="Relatório de Clientes.">Clientes</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="#" title="Relatório de Clientes.">Propostas</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="#" title="Relatório de Clientes.">Publicidades</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="#" title="Relatório de Clientes.">Pagamentos</a>
+                        </li>
+                        <li class="menuItem">
+                            <a href="#" title="Relatório de Clientes.">Históricos</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="innerContent">
+                <h1>Cadastro de Cliente</h1>
+            <div class="painel_form">
+                <div id="container1">
+                    <ul class="tabs">
+                        <li>
+                            <a id="tab1"
+                               title="Dados Gerais do Cliente" 
+                               class="tab-active" 
+                               href="#" 
+                               onclick="return showPane(&#39;pane1&#39;, this)">Dados Gerais</a>
+                        </li>
+                        <li>
+                            <a id="tab2"
+                               title="Itens do Orçamento" 
+                               class="tab-disabled" 
+                               href="#" 
+                               onclick="return showPane(&#39;pane2&#39;, this)">Pessoas Autorizadas</a>
+                        </li>
+                        <li>
+                            <a id="tab3"
+                               title="Condições Pagamento" 
+                               class="tab-disabled" 
+                               href="#" 
+                               onclick="return showPane(&#39;pane3&#39;, this)">Histórico Tickets</a>
+                        </li>
+                    </ul>
+                    <div class="tab-panes">
+                        <div class="divtabs" id="pane1">
+                            <div id="dados_gerais_panel">
+                                <form>
+                                    <h2>Dados do Cliente</h2>
+                                    <label><span class="required_field">*</span>Razão Social:</label>
+                                    <span>
+                                        <input type="text"
+                                               id="razao_social" 
+                                               size="50"
+                                               title="Razão Social do cliente." />
+                                    </span>
+                                    <label id="lbl_nome_fantasia"><span class="required_field">*</span>Nome Fantasia:</label>
+                                    <span>
+                                        <input type="text" 
+                                               id="nome_fantasia" 
+                                               size="43"
+                                               title="Nome Fantasia do cliente." />
+                                    </span>
+                                    </br>
+                                    <label><span class="required_field">*</span>CNPJ:</label>
+                                    <span>
+                                        <input type="text" 
+                                               id="cnpj" 
+                                               size="20" 
+                                               title="CNPJ do cliente." />
+                                    </span>
+                                    </br>
+                                    <label><span class="required_field">*</span>CEP:</label>
+                                    <span>
+                                        <input type="text"
+                                               id="cep" 
+                                               size="10" 
+                                               title="CEP do cliente." /><button class="btn_qry">Q</button>
+                                    </span>
+                                    </br>
+                                    <label><span class="required_field">*</span>Endereço:</label>
+                                    <span>
+                                        <input type="text"
+                                               id="endereco" 
+                                               size="80" 
+                                               title="Endereço do cliente." />
+                                    </span>
+                                    </br>
+                                    <label><span class="required_field">*</span>Bairro:</label>
+                                    <span>
+                                        <input type="text" 
+                                               id="bairro" 
+                                               size="30"
+                                               title="Bairro do endereço do cliente." />
+                                    </span>
+                                    <label id="lbl_cidade"><span class="required_field">*</span>Cidade:</label>
+                                    <span>
+                                        <input type="text" 
+                                               id="cidade" 
+                                               size="30" 
+                                               title="Cidade do endereço do cliente." />
+                                    </span>
+                                    <label id="lbl_uf"><span class="required_field">*</span>UF:</label>
+                                    <span>
+                                        <select id="uf" name="uf" title="UF do enredeço do cliente.">
+                                            <option value="AC">AC</option>
+                                            <option value="AL">AL</option>
+                                            <option value="AM">AM</option>
+                                            <option value="AP">AP</option>
+                                            <option value="BA">BA</option>
+                                            <option value="CE">CE</option>
+                                            <option value="DF">DF</option>
+                                            <option value="ES">ES</option>
+                                            <option value="GO">GO</option>
+                                            <option value="MA">MA</option>
+                                            <option value="MG">MG</option>
+                                            <option value="MS">MS</option>
+                                            <option value="MT">MT</option>
+                                            <option value="PA">PA</option>
+                                            <option value="PB">PB</option>
+                                            <option value="PE">PE</option>
+                                            <option value="PI">PI</option>
+                                            <option value="PR">PR</option>
+                                            <option value="RJ">RJ</option>
+                                            <option value="RN">RN</option>
+                                            <option value="RO">RO</option>
+                                            <option value="RR">RR</option>
+                                            <option value="RS" selectd="selected">RS</option>
+                                            <option value="SC">SC</option>
+                                            <option value="SE">SE</option>
+                                            <option value="SP">SP</option>
+                                            <option value="TO">TO</option>
+                                        </select>
+                                    </span>
+                                    </br>
+                                    <label><span class="required_field">*</span>Fone:</label>
+                                    <span>
+                                        <input type="text" 
+                                               id="telefone" 
+                                               size="15" 
+                                               title="Telefone do cliente." />
+                                    </span>
+                                    <label id="lbl_fax">Fax:</label>
+                                    <span>
+                                        <input type="text" 
+                                               id="fax" 
+                                               size="15"
+                                               title="Fax do cliente." />
+                                    </span>
+                                    <label id="lbl_site">Site:</label>
+                                    <span>
+                                        <input type="text" 
+                                               id="site" 
+                                               size="35" 
+                                               title="Endereço do webiste do cliente." />
+                                    </span>
+                                    </br>
+                                    <br/>
+                                    <span class="required_field" id="span_required">*</span> Campo de preenchimento obrigatório. <button style="float:right;margin-right: 10px;" onclick="jQuery('#tab2').click();return false;">Avançar</button>
+                                    <br/>
+                                    <br/>
+                                </form>
+                            </div>
+                        </div>   
+                        <div class="divtabs" id="pane2" style="display: none; "> 
+                            <form>
+                                <h2>Pessoas Autorizadas</h2>
+                                <table class="width100_percent" cellspacing="4">
+                                    <tbody>
+                                        <tr>
+                                            <td>Sistema:</td>
+                                            <td colspan="2">
+                                                <input type="text" 
+                                                       id="sistema" 
+                                                       size="3"
+                                                       title="Sistema autorizado." 
+                                                       onblur="return getValueField(this);"><button class="btn_qry">Q</button><span id="descrition_natureza_notafiscal"></span>
+                                            </td>
+                                            <td>Situação:</td>
+                                            <td colspan="2">
+                                                <select id="situacao" title="Situação da Pessoa autorizado.">
+                                                    <option>Ativo</option>
+                                                    <option>Inativo</option>
+                                                    <option>Bloqueado</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nome:</td>
+                                            <td colspan="7">
+                                                <input type="text" 
+                                                       id="nome_autorizado"
+                                                       title="Nome da pessoa autorizada." 
+                                                       size="60" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Telefone:</td>
+                                            <td colspan="2">
+                                                <input type="text" 
+                                                       id="telefone_autorizado" 
+                                                       title="Telefone da pessoa autorizada."
+                                                       size="15"/>
+                                            </td>
+                                            <td>Celular:</td>
+                                            <td colspan="2">
+                                                <input type="text" 
+                                                       id="celular_autorizado" 
+                                                       title="Celular da pessoa autorizadao."
+                                                       size="15" />
+                                            </td>
+                                            <td>E-mail:</td>
+                                            <td>
+                                                <input type="text" 
+                                                       id="email_autorizado" 
+                                                       title="E-mail da pessoa autorizada."
+                                                       size="30" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="10" align="right" class="align_right">
+                                                <button id="excluir_autorizado" class="btn_del" title="Excluir pessoa autorizada !.">Excluir</button><button id="incluir_autorizado" class="btn_add" title="Incluir novo autorizado!.">Incluir</button>
+                                                <br/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table_data">
+                                    <tbody>
+                                        <tr>
+                                            <th>Sistema</th>
+                                            <th>Situação</th>
+                                            <th>Nome</th>
+                                            <th>Telefone</th>
+                                            <th>Celular</th>
+                                            <th>E-mail</th>
+                                        </tr>
+                                        <tr>
+                                            <td>PampaSGE</td>
+                                            <td>Ativo</td>
+                                            <td>Henrique Noronha</td>
+                                            <td>51 3333.3333</td>
+                                            <td>51 9999.9999</td>
+                                            <td><a href="mailto:noronhapampa@gmail.com;" title="E-mail para o Cliente !">noronhapampa@gmail.com></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PampaSGE</td>
+                                            <td>Ativo</td>
+                                            <td>Henrique Noronha</td>
+                                            <td>51 3333.3333</td>
+                                            <td>51 9999.9999</td>
+                                            <td><a href="mailto:noronhapampa@gmail.com;" title="E-mail para o Cliente !">noronhapampa@gmail.com></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PampaSGE</td>
+                                            <td>Ativo</td>
+                                            <td>Henrique Noronha</td>
+                                            <td>51 3333.3333</td>
+                                            <td>51 9999.9999</td>
+                                            <td><a href="mailto:noronhapampa@gmail.com;" title="E-mail para o Cliente !">noronhapampa@gmail.com></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PampaSGE</td>
+                                            <td>Ativo</td>
+                                            <td>Henrique Noronha</td>
+                                            <td>51 3333.3333</td>
+                                            <td>51 9999.9999</td>
+                                            <td><a href="mailto:noronhapampa@gmail.com;" title="E-mail para o Cliente !">noronhapampa@gmail.com></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PampaSGE</td>
+                                            <td>Ativo</td>
+                                            <td>Henrique Noronha</td>
+                                            <td>51 3333.3333</td>
+                                            <td>51 9999.9999</td>
+                                            <td><a href="mailto:noronhapampa@gmail.com;" title="E-mail para o Cliente !">noronhapampa@gmail.com></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PampaSGE</td>
+                                            <td>Ativo</td>
+                                            <td>Henrique Noronha</td>
+                                            <td>51 3333.3333</td>
+                                            <td>51 9999.9999</td>
+                                            <td><a href="mailto:noronhapampa@gmail.com;" title="E-mail para o Cliente !">noronhapampa@gmail.com></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PampaSGE</td>
+                                            <td>Ativo</td>
+                                            <td>Henrique Noronha</td>
+                                            <td>51 3333.3333</td>
+                                            <td>51 9999.9999</td>
+                                            <td><a href="mailto:noronhapampa@gmail.com;" title="E-mail para o Cliente !">noronhapampa@gmail.com></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PampaSGE</td>
+                                            <td>Ativo</td>
+                                            <td>Henrique Noronha</td>
+                                            <td>51 3333.3333</td>
+                                            <td>51 9999.9999</td>
+                                            <td><a href="mailto:noronhapampa@gmail.com;" title="E-mail para o Cliente !">noronhapampa@gmail.com></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PampaSGE</td>
+                                            <td>Ativo</td>
+                                            <td>Henrique Noronha</td>
+                                            <td>51 3333.3333</td>
+                                            <td>51 9999.9999</td>
+                                            <td><a href="mailto:noronhapampa@gmail.com;" title="E-mail para o Cliente !">noronhapampa@gmail.com></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PampaSGE</td>
+                                            <td>Ativo</td>
+                                            <td>Henrique Noronha</td>
+                                            <td>51 3333.3333</td>
+                                            <td>51 9999.9999</td>
+                                            <td><a href="mailto:noronhapampa@gmail.com;" title="E-mail para o Cliente !">noronhapampa@gmail.com></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PampaSGE</td>
+                                            <td>Ativo</td>
+                                            <td>Henrique Noronha</td>
+                                            <td>51 3333.3333</td>
+                                            <td>51 9999.9999</td>
+                                            <td><a href="mailto:noronhapampa@gmail.com;" title="E-mail para o Cliente !">noronhapampa@gmail.com></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PampaSGE</td>
+                                            <td>Ativo</td>
+                                            <td>Henrique Noronha</td>
+                                            <td>51 3333.3333</td>
+                                            <td>51 9999.9999</td>
+                                            <td><a href="mailto:noronhapampa@gmail.com;" title="E-mail para o Cliente !">noronhapampa@gmail.com></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PampaSGE</td>
+                                            <td>Ativo</td>
+                                            <td>Henrique Noronha</td>
+                                            <td>51 3333.3333</td>
+                                            <td>51 9999.9999</td>
+                                            <td><a href="mailto:noronhapampa@gmail.com;" title="E-mail para o Cliente !">noronhapampa@gmail.com></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PampaSGE</td>
+                                            <td>Ativo</td>
+                                            <td>Henrique Noronha</td>
+                                            <td>51 3333.3333</td>
+                                            <td>51 9999.9999</td>
+                                            <td><a href="mailto:noronhapampa@gmail.com;" title="E-mail para o Cliente !">noronhapampa@gmail.com></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PampaSGE</td>
+                                            <td>Ativo</td>
+                                            <td>Henrique Noronha</td>
+                                            <td>51 3333.3333</td>
+                                            <td>51 9999.9999</td>
+                                            <td><a href="mailto:noronhapampa@gmail.com;" title="E-mail para o Cliente !">noronhapampa@gmail.com></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="6" class="align_right">
+                                                <button id="voltar" class="btn_bak" onclick="jQuery('#tab1').click();return false;" title="Voltar aba anterior.">Voltar</button><button id="avancar" class="btn_frw" onclick="jQuery('#tab3').click();return false;" title="Próxima aba.">Avançar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="divtabs" id="pane3" style="display: none;">
+                            <form>
+                                <h2 class="last_tab">Histórico de Atendimento</h2>
+                                <table class="table_data">
+                                    <tbody>
+                                    <tr>
+                                        <th>Sistema</th>
+                                        <th>Pessoa</th>
+                                        <th>Atendente</th>
+                                        <th>Tipo Problema</th>
+                                        <th>Status</th>
+                                        <th>Descrição</th>
+                                        <th>Criado em</th>
+                                        <th>Encerrado em</th>
+                                    </tr>
+                                    <tr>
+                                        <td>PampaSGE</td>
+                                        <td>Henrique Noronha</td>
+                                        <td>Leandro Severino</td>
+                                        <td>Técnico</td>
+                                        <td>Concluído</td>
+                                        <td>Sistema Fora do Ar</td>
+                                        <td>2011-08-02 14:00:00</td>
+                                        <td>2011-08-02 16:10:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PampaSGE</td>
+                                        <td>Henrique Noronha</td>
+                                        <td>Leandro Severino</td>
+                                        <td>Técnico</td>
+                                        <td>Concluído</td>
+                                        <td>Sistema Fora do Ar</td>
+                                        <td>2011-08-02 14:00:00</td>
+                                        <td>2011-08-02 16:10:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PampaSGE</td>
+                                        <td>Henrique Noronha</td>
+                                        <td>Leandro Severino</td>
+                                        <td>Técnico</td>
+                                        <td>Concluído</td>
+                                        <td>Sistema Fora do Ar</td>
+                                        <td>2011-08-02 14:00:00</td>
+                                        <td>2011-08-02 16:10:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PampaSGE</td>
+                                        <td>Henrique Noronha</td>
+                                        <td>Leandro Severino</td>
+                                        <td>Técnico</td>
+                                        <td>Concluído</td>
+                                        <td>Sistema Fora do Ar</td>
+                                        <td>2011-08-02 14:00:00</td>
+                                        <td>2011-08-02 16:10:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PampaSGE</td>
+                                        <td>Henrique Noronha</td>
+                                        <td>Leandro Severino</td>
+                                        <td>Técnico</td>
+                                        <td>Concluído</td>
+                                        <td>Sistema Fora do Ar</td>
+                                        <td>2011-08-02 14:00:00</td>
+                                        <td>2011-08-02 16:10:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PampaSGE</td>
+                                        <td>Henrique Noronha</td>
+                                        <td>Leandro Severino</td>
+                                        <td>Técnico</td>
+                                        <td>Concluído</td>
+                                        <td>Sistema Fora do Ar</td>
+                                        <td>2011-08-02 14:00:00</td>
+                                        <td>2011-08-02 16:10:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PampaSGE</td>
+                                        <td>Henrique Noronha</td>
+                                        <td>Leandro Severino</td>
+                                        <td>Técnico</td>
+                                        <td>Concluído</td>
+                                        <td>Sistema Fora do Ar</td>
+                                        <td>2011-08-02 14:00:00</td>
+                                        <td>2011-08-02 16:10:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PampaSGE</td>
+                                        <td>Henrique Noronha</td>
+                                        <td>Leandro Severino</td>
+                                        <td>Técnico</td>
+                                        <td>Concluído</td>
+                                        <td>Sistema Fora do Ar</td>
+                                        <td>2011-08-02 14:00:00</td>
+                                        <td>2011-08-02 16:10:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PampaSGE</td>
+                                        <td>Henrique Noronha</td>
+                                        <td>Leandro Severino</td>
+                                        <td>Técnico</td>
+                                        <td>Concluído</td>
+                                        <td>Sistema Fora do Ar</td>
+                                        <td>2011-08-02 14:00:00</td>
+                                        <td>2011-08-02 16:10:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PampaSGE</td>
+                                        <td>Henrique Noronha</td>
+                                        <td>Leandro Severino</td>
+                                        <td>Técnico</td>
+                                        <td>Concluído</td>
+                                        <td>Sistema Fora do Ar</td>
+                                        <td>2011-08-02 14:00:00</td>
+                                        <td>2011-08-02 16:10:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PampaSGE</td>
+                                        <td>Henrique Noronha</td>
+                                        <td>Leandro Severino</td>
+                                        <td>Técnico</td>
+                                        <td>Concluído</td>
+                                        <td>Sistema Fora do Ar</td>
+                                        <td>2011-08-02 14:00:00</td>
+                                        <td>2011-08-02 16:10:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PampaSGE</td>
+                                        <td>Henrique Noronha</td>
+                                        <td>Leandro Severino</td>
+                                        <td>Técnico</td>
+                                        <td>Concluído</td>
+                                        <td>Sistema Fora do Ar</td>
+                                        <td>2011-08-02 14:00:00</td>
+                                        <td>2011-08-02 16:10:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PampaSGE</td>
+                                        <td>Henrique Noronha</td>
+                                        <td>Leandro Severino</td>
+                                        <td>Técnico</td>
+                                        <td>Concluído</td>
+                                        <td>Sistema Fora do Ar</td>
+                                        <td>2011-08-02 14:00:00</td>
+                                        <td>2011-08-02 16:10:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PampaSGE</td>
+                                        <td>Henrique Noronha</td>
+                                        <td>Leandro Severino</td>
+                                        <td>Técnico</td>
+                                        <td>Concluído</td>
+                                        <td>Sistema Fora do Ar</td>
+                                        <td>2011-08-02 14:00:00</td>
+                                        <td>2011-08-02 16:10:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PampaSGE</td>
+                                        <td>Henrique Noronha</td>
+                                        <td>Leandro Severino</td>
+                                        <td>Técnico</td>
+                                        <td>Concluído</td>
+                                        <td>Sistema Fora do Ar</td>
+                                        <td>2011-08-02 14:00:00</td>
+                                        <td>2011-08-02 16:10:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="8" class="align_right">
+                                            <button onclick="jQuery('#tab2').click();return false;">Voltar</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <br class="clear_both" />
+    <div id="footer">
+    </div>
+    <script type="text/javascript">
+        var panes = new Array();
+        function setupPanes(containerId, defaultTabId) {
+            panes[containerId] = new Array();
+            var maxHeight = 0; var maxWidth = 0;
+            var container = document.getElementById(containerId);
+            var paneContainer = container.getElementsByTagName("div")[0];
+            var paneList = paneContainer.childNodes;
+            for (var i=0; i < paneList.length; i++ ) {
+                var pane = paneList[i];
+                if (pane.nodeType != 1) continue;
+                if (pane.offsetHeight > maxHeight) maxHeight = pane.offsetHeight;
+                if (pane.offsetWidth  > maxWidth ) maxWidth  = pane.offsetWidth;
+                panes[containerId][pane.id] = pane;
+                pane.style.display = "none";
+            }
+            paneContainer.style.height = maxHeight + "px";
+            paneContainer.style.width  = maxWidth + "px";
+            document.getElementById(defaultTabId).onclick();
+        }
+        function showPane(paneId, activeTab) {
+            for (var con in panes) {
+                activeTab.blur();
+                activeTab.className = "tab-active";
+                if (panes[con][paneId] != null) {
+                    var pane = document.getElementById(paneId);
+                    pane.style.display = "block";
+                    var container = document.getElementById(con);
+                    var tabs = container.getElementsByTagName("ul")[0];
+                    var tabList = tabs.getElementsByTagName("a")
+                    for (var i=0; i<tabList.length; i++ ) {
+                        var tab = tabList[i];
+                        if (tab != activeTab) tab.className = "tab-disabled";
+                    }
+                    for (var i in panes[con]) {
+                        var pane = panes[con][i];
+                        if (pane == undefined) continue;
+                        if (pane.id == paneId) continue;
+                        pane.style.display = "none"
+                    }
+                }
+            }
+            return false;
+        }
+        function getValueField(evt){
+            obj = document.getElementById('descrition_natureza_notafiscal');
+            obj.innerHTML='Venda de Produtos';
+            return true;
+        }
+        function onload(){ setupPanes("container1", "tab1"); }
+        window.onload=onload()
+        </script>
+        <script type="text/javascript">
+        <!--
+            jQuery(document).ready(function(){calendar_init();});
+        //-->
+        </script>
+   </body>
+</html>
+

@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="generator" content="Geany 0.18">
+        <meta name="copyright" content="Copyright (c) 2010 ProfessionalIT. This site&#39;s design and html code is licensed under the terms of the GPLv3 or (at your option) any later version.">
+        <meta lang="pt-BR" name="Keywords" content="Sistema ERP, Open-Source, Python, Gestao Empresarial.">
+        <meta lang="pt-BR" name="Description" content="Sistema de Gestao Empresarial Open-Source.">
+        <meta name="robots" content="ALL">
+        <meta name="rating" content="General">
+        <meta name="author" content="Leandro Severino - ProfessionalIT">
+        <meta name="language" content="pt-br">
+        <meta name="DC.title" content="professionalit.com.br">     
+        <meta name="revisit-after" content="1">
+        <link href="http://sistema.pampacomercial.com.br/static/images/alt.gif" rel="SHORTCUT ICON">
+        <link href="./form_files/sge.css" type="text/css" rel="stylesheet" media="screen">
+        <script src="./form_files/menu.js" type="text/javascript"></script>
+        <script src="./form_files/sge.js" type="text/javascript"></script>
+        <script src="./form_files/ajax.js" type="text/javascript"></script>
+        <!--JS da pagina-->
+        <!--[if lt IE 7.]>
+            <script defer type="text/javascript" src="/static/javascript/pngfix.js"></script>
+        <![endif]-->
+        <!-- Calendar -->
+        <link href="./form_files/calendar.css" type="text/css" rel="stylesheet" media="screen">
+        <script src="./form_files/jquery.js" type="text/javascript"></script>
+        <script src="./form_files/calendar.js" type="text/javascript"></script>
+        <script type="text/javascript">
+        <!--
+        function calendar_init() {
+          try { jQuery("input.datetime").focus( function() {Calendar.setup({
+             inputField:this.id, ifFormat:"%Y-%m-%d %H:%M:%S", showsTime: true,timeFormat: "24"
+          }); }); } catch(e) {};
+        };
+        //-->
+        </script>
+        <!-- /Calendar -->
+        <!-- Menu -->
+        <link rel="stylesheet" type="text/css" href="./form_files/superfish.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="./form_files/tabs.css" media="screen">
+        <script type="text/javascript" src="./form_files/hoverIntent.js"></script>
+        <script type="text/javascript" src="./form_files/superfish.js"></script>
+        <script type="text/javascript">
+        // initialise plugins
+        jQuery(function(){
+            jQuery('ul.sf-menu').superfish();
+        });
+        </script>
+        <!-- /Menu -->
+        <style type="text/css">
+            html{ height:100%}
+            body{ height:100%}
+            #dados_gerais_panel { padding: 5px 05px 10px 05px; width: 995px; }
+            #dados_gerais_panel span { border: 01px solid #eee; padding: 08px 05px; }
+            #dados_gerais_panel label { width: 125px; display: inline-table; border: 01px solid #eee; font-weight: bold; padding: 08px 10px; margin-bottom: -11px; margin-right: 05px; margin-top: 15px; margin-left: 05px;}
+            #dados_gerais_panel input[type='text'], textarea { background-color: #fff; }
+            #dados_gerais_panel input[type='text']:focus, textarea:focus { background-color: #E6E6FA; border: 01px solid #A020F0; }
+            #dados_gerais_panel .required_field { border: none; color: red; padding: 0px 2px; }
+        </style>
+        <title>SGJ - Versão beta 0.01</title>
+    </head>
+    <body>
+        <!-- Menubar. -->
+        <ul class="sf-menu sf-js-enabled sf-shadow">
+            <li class="current sfHover">
+                <a href="#a" class="sf-with-ul">Cadastros<span class="sf-sub-indicator"> »</span></a>
+                <ul style="display: none; visibility: hidden; ">
+                    <li><a href="#clientes">Clientes</a></li>
+                    <li><a href="#vendedor">Vendedor</a></li>
+                    <li><a href="#produto">Produto</a></li>
+                    <li><a href="#secao">Seção</a></li>
+                    <li><a href="#forma_pagamento">Forma de Pagamento</a></li>
+                    <li><a href="#configuracoes">Configurações</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#rotinas" class="sf-with-ul">Rotinas<span class="sf-sub-indicator"> »</span></a>
+                <ul style="display: none; visibility: hidden; ">
+                    <li><a href="#publicidade">Publicidade</a></li>
+                    <li><a href="#visita">Visita</a></li>
+                    <li><a href="#proposta">Proposta</a></li>
+                    <li><a href="#pagamentos">Pagamentos</a></li>
+                    <li><a href="http://sistema.pampacomercial.com.br/relatorio_entradas_fornecedor">Fechados</a></li>
+                    <li><a href="http://sistema.pampacomercial.com.br/relatorio_entradas_fornecedor">Histórico</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="http://sistema.pampacomercial.com.br/create_orcamento#" class="sf-with-ul">Relatórios<span class="sf-sub-indicator"> »</span></a>
+                <ul style="display: none; visibility: hidden; ">
+                    <li><a href="http://sistema.pampacomercial.com.br/relatorio_vendas">Atendimentos por Período</a></li>
+                    <li><a href="http://sistema.pampacomercial.com.br/relatorio_produtos">Atendimentos por Status</a></li>
+                    <li><a href="http://sistema.pampacomercial.com.br/relatorio_clientes">Atendimentos por Cliente</a></li>
+                    <li><a href="http://sistema.pampacomercial.com.br/relatorio_fornecedores">Atendimentos por Sistema</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div style="height:25px;background-color:#fff;margin:0px;padding:0px 10px 0px 20px;margin-top:5px;display:block;float:right;">
+            <span style="font-weight:bold;color:red;text-align:left;float:right;">Você está em: <span style="font-weight:bold;color:black;text-align:right;">Inclusão de Clientes</span></span>
+        </div>
+        <br>
+        <!--/Menubar. -->
+        <div id="innerContent">
+            <h1>Cadastro de Cliente</h1>
+            <div class="painel_form">
+                <div id="container1">
+                    <ul class="tabs">
+                        <li><a title="Dados Gerais do Cliente" class="tab-active" href="http://sistema.pampacomercial.com.br/create_orcamento#" onclick="return showPane(&#39;pane1&#39;, this)" id="tab1">Dados Gerais</a></li>
+                        <li><a title="Itens do Orçamento" class="tab-disabled" href="http://sistema.pampacomercial.com.br/create_orcamento#" onclick="return showPane(&#39;pane2&#39;, this)" id="tab2">Pessoas Autorizadas</a></li>
+                        <li><a title="Condições Pagamento" class="tab-disabled" href="http://sistema.pampacomercial.com.br/create_orcamento#" onclick="return showPane(&#39;pane3&#39;, this)" id="tab3">Histórico Tickets</a></li>
+                    </ul>
+                    <div class="tab-panes" style="height: 100%; min-height: 630px !important; width: 1241px;">
+                        <div class="divtabs" id="pane1" style="display: block;text-align:left;">
+                            <div id="dados_gerais_panel">
+                                <form>
+                                    <h2 style="margin-left: 05px;">Dados do Cliente</h2>
+                                    <label><span class="required_field">*</span>Razão Social:</label><span><input id="razao_social" size="50" type="text" style="width:310px;" /></span><label style="width: 140px;"><span class="required_field">*</span>Nome Fantasia:</label><span><input id="nome_fantasia" size="43" type="text" style="width:310px;" /></span></br>
+                                    <label><span class="required_field">*</span>CNPJ:</label><span><input id="cnpj" size="20" type="text" /></span></br>
+                                    <label><span class="required_field">*</span>CEP:</label><span><input id="cep" size="10" type="text"/><button>Q</button></span></br>
+                                    <label><span class="required_field">*</span>Endereço:</label><span><input id="endereco" size="80" type="text"/></span></br>
+                                    <label><span class="required_field">*</span>Bairro:</label><span><input id="bairro" size="30" type="text" style="width:250px;"/></span><label style="width: 70px;"><span class="required_field">*</span>Cidade:</label><span><input id="cidade" size="30" type="text" style="width:200px;" /></span><label style="width: 40px;"><span class="required_field">*</span>UF:</label><span><select id="uf" name="uf"><option value="AC">AC</option><option value="AL">AL</option><option value="AM">AM</option><option value="AP">AP</option><option value="BA">BA</option><option value="CE">CE</option><option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option><option value="MA">MA</option><option value="MG">MG</option><option value="MS">MS</option><option value="MT">MT</option><option value="PA">PA</option><option value="PB">PB</option><option value="PE">PE</option><option value="PI">PI</option><option value="PR">PR</option><option value="RJ">RJ</option><option value="RN">RN</option><option value="RO">RO</option><option value="RR">RR</option><option value="RS">RS</option><option value="SC">SC</option><option value="SE">SE</option><option value="SP">SP</option><option value="TO">TO</option></select></span></br>
+                                    <label><span class="required_field">*</span>Fone:</label><span><input id="telefone" size="15" type="text"/></span><label style="width: 70px;">Fax:</label><span><input id="fax" size="15" type="text"/></span><label style="width: 70px;">Site:</label><span><input id="site" size="35" type="text" style="width:260px;" /></span></br>
+                                    <br/>
+                                    <span class="required_field" style="padding-left: 20px;">*</span> Campo de preenchimento obrigatório. <button style="float:right;margin-right: 10px;" onclick="jQuery('#tab2').click();return false;">Avançar</button>
+                                    <br/>
+                                    <br/>
+                                </form>
+                            </div>
+                        </div>   
+                        <div class="divtabs" id="pane2" style="display: none; "> 
+                            <form>
+                                <h2 style="margin-left: 05px;">Pessoas Autorizadas</h2>
+                                <table style="width: 100%;" cellspacing="4">
+                                    <tbody>
+                                    <tr><td>Sistema:</td><td colspan="2"><input type="text" id="sistema" size="3" onblur="return getValueField(this);" style="width: 50px;"><button>Q</button><span id="descrition_natureza_notafiscal" style="border: 01px outset gray;width:180px;display:inline-table;height: 20px;margin-bottom: 5px;vertical-align: middle;background-color: #eee;"></span></td><td>Situação:</td><td colspan="2"><select><option>Ativo</option><option>Inativo</option><option>Bloqueado</option></select></td></tr>
+                                    <tr><td>Nome:</td><td colspan="7"><input type="text" id="cliente" size="60"></td></tr>
+                                    <tr><td>Telefone:</td><td colspan="2"><input type="text" id="cliente" size="15"></td><td>Celular:</td><td colspan="2"><input type="text" id="cliente" size="15"></td><td>E-mail:</td><td><input type="text" id="cliente" size="30"></td></tr>
+                                    <tr><td colspan="10" align="right" style="text-align:right;"><button>Excluir</button><button>Incluir</button><br></td></tr>
+                                </tbody></table>
+                                <table style="margin: 0px auto; width:100%;border: 01px solid #ccc; margin-top: 10px;">
+                                    <tbody>
+                                    <tr><th style="text-align:center;">Sistema</th><th style="text-align:center;">Situação</th><th style="text-align:center;">Nome</th><th style="text-align:center;">Telefone</th><th style="text-align:center;">Celular</th><th style="text-align:center;">E-mail</th></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Ativo</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">51 3333.3333</td><td style="text-align:center;">51 9999.9999</td><td style="text-align:center;">noronhapampa@gmail.com</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Ativo</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">51 3333.3333</td><td style="text-align:center;">51 9999.9999</td><td style="text-align:center;">noronhapampa@gmail.com</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Ativo</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">51 3333.3333</td><td style="text-align:center;">51 9999.9999</td><td style="text-align:center;">noronhapampa@gmail.com</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Ativo</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">51 3333.3333</td><td style="text-align:center;">51 9999.9999</td><td style="text-align:center;">noronhapampa@gmail.com</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Ativo</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">51 3333.3333</td><td style="text-align:center;">51 9999.9999</td><td style="text-align:center;">noronhapampa@gmail.com</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Ativo</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">51 3333.3333</td><td style="text-align:center;">51 9999.9999</td><td style="text-align:center;">noronhapampa@gmail.com</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Ativo</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">51 3333.3333</td><td style="text-align:center;">51 9999.9999</td><td style="text-align:center;">noronhapampa@gmail.com</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Ativo</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">51 3333.3333</td><td style="text-align:center;">51 9999.9999</td><td style="text-align:center;">noronhapampa@gmail.com</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Ativo</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">51 3333.3333</td><td style="text-align:center;">51 9999.9999</td><td style="text-align:center;">noronhapampa@gmail.com</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Ativo</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">51 3333.3333</td><td style="text-align:center;">51 9999.9999</td><td style="text-align:center;">noronhapampa@gmail.com</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Ativo</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">51 3333.3333</td><td style="text-align:center;">51 9999.9999</td><td style="text-align:center;">noronhapampa@gmail.com</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Ativo</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">51 3333.3333</td><td style="text-align:center;">51 9999.9999</td><td style="text-align:center;">noronhapampa@gmail.com</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Ativo</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">51 3333.3333</td><td style="text-align:center;">51 9999.9999</td><td style="text-align:center;">noronhapampa@gmail.com</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Ativo</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">51 3333.3333</td><td style="text-align:center;">51 9999.9999</td><td style="text-align:center;">noronhapampa@gmail.com</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Ativo</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">51 3333.3333</td><td style="text-align:center;">51 9999.9999</td><td style="text-align:center;">noronhapampa@gmail.com</td></tr>
+                                    <tr><td colspan="6" style="text-align:right;"><button onclick="jQuery('#tab1').click();return false;">Voltar</button><button onclick="jQuery('#tab3').click();return false;">Avançar</button></td></tr>
+                                </tbody></table>
+                            </form>
+                        </div>
+                        <div class="divtabs" id="pane3" style="display: none;">
+                            <form>
+                                <h2 style="margin-left: 25px;">Histórico de Atendimento</h2>
+                                <table style="margin: 0px auto; width:100%;border: 01px solid #ccc; margin-top: 10px;">
+                                    <tbody>
+                                    <tr><th style="text-align:center;">Sistema</th><th style="text-align:center;">Pessoa</th><th style="text-align:center;">Atendente</th><th style="text-align:center;">Tipo Problema</th><th style="text-align:center;">Status</th><th style="text-align:center;">Descrição</th><th style="text-align:center;">Criado em</th><th style="text-align:center;">Encerrado em</th></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">Leandro Severino</td><td style="text-align:center;">Técnico</td><td style="text-align:center;">Concluído</td><td style="text-align:center;">Sistema Fora do Ar</td><td style="text-align:center;">2011-08-02 14:00:00</td><td style="text-align:center;">2011-08-02 16:10:00</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">Leandro Severino</td><td style="text-align:center;">Técnico</td><td style="text-align:center;">Concluído</td><td style="text-align:center;">Sistema Fora do Ar</td><td style="text-align:center;">2011-08-02 14:00:00</td><td style="text-align:center;">2011-08-02 16:10:00</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">Leandro Severino</td><td style="text-align:center;">Técnico</td><td style="text-align:center;">Concluído</td><td style="text-align:center;">Sistema Fora do Ar</td><td style="text-align:center;">2011-08-02 14:00:00</td><td style="text-align:center;">2011-08-02 16:10:00</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">Leandro Severino</td><td style="text-align:center;">Técnico</td><td style="text-align:center;">Concluído</td><td style="text-align:center;">Sistema Fora do Ar</td><td style="text-align:center;">2011-08-02 14:00:00</td><td style="text-align:center;">2011-08-02 16:10:00</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">Leandro Severino</td><td style="text-align:center;">Técnico</td><td style="text-align:center;">Concluído</td><td style="text-align:center;">Sistema Fora do Ar</td><td style="text-align:center;">2011-08-02 14:00:00</td><td style="text-align:center;">2011-08-02 16:10:00</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">Leandro Severino</td><td style="text-align:center;">Técnico</td><td style="text-align:center;">Concluído</td><td style="text-align:center;">Sistema Fora do Ar</td><td style="text-align:center;">2011-08-02 14:00:00</td><td style="text-align:center;">2011-08-02 16:10:00</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">Leandro Severino</td><td style="text-align:center;">Técnico</td><td style="text-align:center;">Concluído</td><td style="text-align:center;">Sistema Fora do Ar</td><td style="text-align:center;">2011-08-02 14:00:00</td><td style="text-align:center;">2011-08-02 16:10:00</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">Leandro Severino</td><td style="text-align:center;">Técnico</td><td style="text-align:center;">Concluído</td><td style="text-align:center;">Sistema Fora do Ar</td><td style="text-align:center;">2011-08-02 14:00:00</td><td style="text-align:center;">2011-08-02 16:10:00</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">Leandro Severino</td><td style="text-align:center;">Técnico</td><td style="text-align:center;">Concluído</td><td style="text-align:center;">Sistema Fora do Ar</td><td style="text-align:center;">2011-08-02 14:00:00</td><td style="text-align:center;">2011-08-02 16:10:00</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">Leandro Severino</td><td style="text-align:center;">Técnico</td><td style="text-align:center;">Concluído</td><td style="text-align:center;">Sistema Fora do Ar</td><td style="text-align:center;">2011-08-02 14:00:00</td><td style="text-align:center;">2011-08-02 16:10:00</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">Leandro Severino</td><td style="text-align:center;">Técnico</td><td style="text-align:center;">Concluído</td><td style="text-align:center;">Sistema Fora do Ar</td><td style="text-align:center;">2011-08-02 14:00:00</td><td style="text-align:center;">2011-08-02 16:10:00</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">Leandro Severino</td><td style="text-align:center;">Técnico</td><td style="text-align:center;">Concluído</td><td style="text-align:center;">Sistema Fora do Ar</td><td style="text-align:center;">2011-08-02 14:00:00</td><td style="text-align:center;">2011-08-02 16:10:00</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">Leandro Severino</td><td style="text-align:center;">Técnico</td><td style="text-align:center;">Concluído</td><td style="text-align:center;">Sistema Fora do Ar</td><td style="text-align:center;">2011-08-02 14:00:00</td><td style="text-align:center;">2011-08-02 16:10:00</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">Leandro Severino</td><td style="text-align:center;">Técnico</td><td style="text-align:center;">Concluído</td><td style="text-align:center;">Sistema Fora do Ar</td><td style="text-align:center;">2011-08-02 14:00:00</td><td style="text-align:center;">2011-08-02 16:10:00</td></tr>
+                                    <tr><td style="text-align:center;">PampaSGE</td><td style="text-align:center;">Henrique Noronha</td><td style="text-align:center;">Leandro Severino</td><td style="text-align:center;">Técnico</td><td style="text-align:center;">Concluído</td><td style="text-align:center;">Sistema Fora do Ar</td><td style="text-align:center;">2011-08-02 14:00:00</td><td style="text-align:center;">2011-08-02 16:10:00</td></tr>
+                                    <tr><td colspan="8" style="text-align:right;"><button onclick="jQuery('#tab2').click();return false;">Voltar</button></td></tr>
+                                </tbody></table>
+                            </form>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="clear:both;margin-top:60px auto;display:block;"/>
+        <div id="copyrightMessage">
+            <p>
+                <span><a href="http://www.professionalit.com.br/" title="ProfessionalIT - Sistemas, Sites, Aplicações Web e Mobile.">ProfessionalIT 2012</a></span><span>| +55 51 3032.3043</span><span>| comercial@professionalit.com.br</span> |<span>Usuário: <strong class="user_destaq"></strong> | <a href="http://sistema.pampacomercial.com.br/_ah/logout?continue=https://www.google.com/accounts/Logout%3Fcontinue%3Dhttp://www.pampacomercial.com.br%26service%3Dah" title="Efetuar o Log-Off no sistema.">Log-Off.</a></span><span>| <a href="http://sistema.pampacomercial.com.br/index" alt="Página Inicial.">Home</a>.</span>
+            </p>
+        </div>
+        <script type="text/javascript">
+        var panes = new Array();
+        function setupPanes(containerId, defaultTabId) {
+            // go through the DOM, find each tab-container
+            // set up the panes array with named panes
+            // find the max height, set tab-panes to that height
+            panes[containerId] = new Array();
+            var maxHeight = 0; var maxWidth = 0;
+            var container = document.getElementById(containerId);
+            var paneContainer = container.getElementsByTagName("div")[0];
+            var paneList = paneContainer.childNodes;
+            for (var i=0; i < paneList.length; i++ ) {
+                var pane = paneList[i];
+                if (pane.nodeType != 1) continue;
+                if (pane.offsetHeight > maxHeight) maxHeight = pane.offsetHeight;
+                if (pane.offsetWidth  > maxWidth ) maxWidth  = pane.offsetWidth;
+                panes[containerId][pane.id] = pane;
+                pane.style.display = "none";
+            }
+            paneContainer.style.height = maxHeight + "px";
+            paneContainer.style.width  = maxWidth + "px";
+            document.getElementById(defaultTabId).onclick();
+        }
+        function showPane(paneId, activeTab) {
+            // make tab active class
+            // hide other panes (siblings)
+            // make pane visible
+            for (var con in panes) {
+                activeTab.blur();
+                activeTab.className = "tab-active";
+                if (panes[con][paneId] != null) { // tab and pane are members of this container
+                    var pane = document.getElementById(paneId);
+                    pane.style.display = "block";
+                    var container = document.getElementById(con);
+                    var tabs = container.getElementsByTagName("ul")[0];
+                    var tabList = tabs.getElementsByTagName("a")
+                    for (var i=0; i<tabList.length; i++ ) {
+                        var tab = tabList[i];
+                        if (tab != activeTab) tab.className = "tab-disabled";
+                    }
+                    for (var i in panes[con]) {
+                        var pane = panes[con][i];
+                        if (pane == undefined) continue;
+                        if (pane.id == paneId) continue;
+                        pane.style.display = "none"
+                    }
+                }
+            }
+            return false;
+        }
+        function getValueField(evt){
+            obj = document.getElementById('descrition_natureza_notafiscal');
+            obj.innerHTML='Venda de Produtos';
+            return true;
+        }
+        function onload(){
+            setupPanes("container1", "tab1");
+        }
+        window.onload=onload()
+        </script>
+        <script type="text/javascript">
+        <!--
+            jQuery(document).ready(function(){calendar_init();});
+        //-->
+        </script>
+    </body>
+</html>
